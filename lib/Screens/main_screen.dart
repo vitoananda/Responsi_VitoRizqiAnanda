@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:responsi_124200044/data_source.dart';
-import 'package:responsi_124200044/detail_page.dart';
-import 'package:responsi_124200044/matches_model.dart';
-import 'detail_matches_model.dart';
-
+import 'package:responsi_124200044/Helper/data_source.dart';
+import 'package:responsi_124200044/Screens/detail_page.dart';
+import 'package:responsi_124200044/Model/matches_model.dart';
+import '../Model/detail_matches_model.dart';
 
 class Menu extends StatefulWidget {
   const Menu({Key? key}) : super(key: key);
@@ -55,7 +54,9 @@ class _MenuState extends State<Menu> {
 
   Widget _buildLoadingSection() {
     return Center(
-      child: CircularProgressIndicator(),
+      child: CircularProgressIndicator(
+        color: Color(0xff0800000),
+      ),
     );
   }
 
@@ -65,8 +66,6 @@ class _MenuState extends State<Menu> {
       itemCount: 44,
       itemBuilder: (BuildContext context, int index) {
         MatchesModel matchesModel = MatchesModel.fromJson(data[index]);
-        DetailMatchesModel detailMatchesModel =
-            DetailMatchesModel.fromJson(data[index]);
         return InkWell(
           onTap: () {
             Navigator.push(
@@ -110,10 +109,13 @@ class _MenuState extends State<Menu> {
                       child: FittedBox(
                           fit: BoxFit.fill,
                           child: Image.network(
-                              'https://countryflagsapi.com/png/${matchesModel!.homeTeam!.name!}'))),
-                  Text(("${matchesModel!.homeTeam!.name!}")),
-                  Text(("${matchesModel!.homeTeam!.goals!} - ${matchesModel!.awayTeam!.goals!}")),
-                  Text(("${matchesModel!.awayTeam!.name!}")),
+                              'https://countryflagsapi.com/png/${matchesModel!.homeTeam!.name!}')
+                      )),
+
+                      Text("${matchesModel!.homeTeam!.name!}"),
+                      Text("${matchesModel!.homeTeam!.goals!} - ${matchesModel!.awayTeam!.goals!}"),
+                      Text("${matchesModel!.awayTeam!.name!}"),
+
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.white,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:responsi_124200044/base_network.dart';
-import 'package:responsi_124200044/detail_matches_model.dart';
-import 'package:responsi_124200044/matches_model.dart';
+import 'package:responsi_124200044/Helper/base_network.dart';
+import 'package:responsi_124200044/Model/detail_matches_model.dart';
+import 'package:responsi_124200044/Model/matches_model.dart';
 
 class MatchDetail extends StatefulWidget {
   final MatchesModel? detail;
